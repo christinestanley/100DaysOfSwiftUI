@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var tipPercentage = 2
     
     let tipPercentages = [10, 15, 20, 25, 0]
+    // Add Emoji to tip % header
     let tipEmojis = ["😏","🙂","😀","😋","😢"]
     
     var peopleCount: Double {
