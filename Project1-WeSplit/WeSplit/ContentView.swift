@@ -19,7 +19,7 @@ struct ContentView: View {
     let tipEmojis = ["😏","🙂","😀","😋","😢"]
     
     var peopleCount: Double {
-        return Double(Int(numberOfPeople) ?? 0) + 2
+        return Double(Int(numberOfPeople) ?? 1)
     }
     var grandTotal: Double {
         let tipSelection = Double(tipPercentages[tipPercentage])
