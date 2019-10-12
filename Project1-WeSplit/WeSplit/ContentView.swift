@@ -31,6 +31,10 @@ struct ContentView: View {
         return grandTotal / peopleCount
     }
     
+    private func endEditing() {
+        UIApplication.shared.endEditing()
+    }
+    
     var body: some View {
         NavigationView {
             Form {
@@ -46,6 +50,9 @@ struct ContentView: View {
                     //}
                     TextField("Number of People", text: $numberOfPeople)
                         .keyboardType(.numberPad)
+                }
+                .onTapGesture {
+                    self.endEditing()
                 }
                 Section(header: Text("How much tip do \(tipEmojis[tipPercentage]) want to leave? ")) {
                     Picker("Tip percentage", selection: $tipPercentage) {
@@ -71,5 +78,12 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+    }
+}
+
+// Solution for hiding keyboard from https://stackoverflow.com/a/56496669
+extension UIApplication {
+    func endEditing() {
+        sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
