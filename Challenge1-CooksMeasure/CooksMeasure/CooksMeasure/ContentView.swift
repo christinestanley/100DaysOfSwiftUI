@@ -35,12 +35,15 @@ struct ContentView: View {
         switch units[outputUnit] {
         case "grams":
             let grams = massInKilos.converted(to: UnitMass.grams)
-            return "\(grams.value) \(grams.unit.symbol)"
+            let formattedGrams = String(format: "%.0f", grams.value)
+            return formattedGrams + " " + UnitMass.grams.symbol
         case "kilos":
-            return "\(massInKilos.value) \(massInKilos.unit.symbol)"
+            let formattedKilos = String(format: "%.3f", massInKilos.value)
+            return formattedKilos + " " + massInKilos.unit.symbol
         case "ozs":
             let ozs = massInKilos.converted(to: UnitMass.ounces)
-            return "\(ozs.value) \(ozs.unit.symbol)"
+            let formattedOzs = String(format: "%.0f", ozs.value)
+            return formattedOzs + " " + ozs.unit.symbol
         default:
             return "0.0"
         }
