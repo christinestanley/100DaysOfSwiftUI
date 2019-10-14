@@ -42,11 +42,40 @@ struct ContentView: View {
             return formattedKilos + " " + massInKilos.unit.symbol
         case "ozs":
             let ozs = massInKilos.converted(to: UnitMass.ounces)
-            let formattedOzs = String(format: "%.0f", ozs.value)
-            return formattedOzs + " " + ozs.unit.symbol
+            return formattedOz(ozs.value) + " " + ozs.unit.symbol
         default:
-            return "0.0"
+            return "0"
         }
+    }
+    
+    private func formattedOz(_ oz: Double) -> String {
+        let roundedOz = Int((oz * 4).rounded())
+        let lbs = roundedOz / 64
+        let ozs = (roundedOz % 64) / 4
+        let partOzs = roundedOz % 4
+        
+        // build the result string
+        var formattedResult = ""
+        if lbs > 0 {
+            formattedResult += "\(lbs) lb "
+        }
+        if ozs > 0 {
+            formattedResult += "\(ozs)"
+        }
+        switch partOzs {
+        case 1:
+            formattedResult += "¼"
+        case 2:
+            formattedResult += "½"
+        case 3:
+            formattedResult += "¾"
+        default:
+            if ozs == 0 {
+                formattedResult += "0"
+            }
+        }
+        
+        return formattedResult
     }
 
     var body: some View {
@@ -54,7 +83,7 @@ struct ContentView: View {
             Form {
                 Section() {
                     TextField("Weight", text:$inputValue)
-                        .keyboardType(.numberPad)
+                        .keyboardType(.decimalPad)
                     
                     Picker("Unit", selection: $inputUnit) {
                         ForEach(0..<units.count) {
