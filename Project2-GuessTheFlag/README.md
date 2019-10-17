@@ -15,3 +15,7 @@ You’re going to need to download some files for this project, which you can do
 2. Show the player’s current score in a label directly below the flags.
 
 3. When someone chooses the wrong flag, tell them their mistake in your alert message – something like “Wrong! That’s the flag of France,” for example.
+
+## Further Challenges
+### Day 24 Challenge 3
+Create a `FlagImage()` view that renders one flag image using the specific set of modifiers we had.
