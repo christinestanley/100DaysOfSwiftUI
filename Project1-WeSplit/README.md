@@ -11,3 +11,7 @@ In this project you learn about the basic structure of SwiftUI apps, how to buil
 2. Add another section showing the total amount for the check – i.e., the original amount plus tip value, without dividing by the number of people.
 
 3. Change the “Number of people” picker to be a text field, making sure to use the correct keyboard type.
+
+## Further Challenges
+### Day 24 Challenge 2
+Use a conditional modifier to change the total amount text view to red if the user selects a 0% tip.
