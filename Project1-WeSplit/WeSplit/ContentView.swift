@@ -31,6 +31,11 @@ struct ContentView: View {
         return grandTotal / peopleCount
     }
     
+    // Day 23 Challenge 2
+    private var isStingy: Bool {
+        return tipPercentages[tipPercentage] == 0
+    }
+    
     private func endEditing() {
         UIApplication.shared.endEditing()
     }
@@ -64,12 +69,12 @@ struct ContentView: View {
                 // Day 18 Challenge 2: Add another section showing the total amount for the check – i.e., the original amount plus tip value, without dividing by the number of people.
                 Section(header: Text("Total including tip")) {
                     Text("£\(grandTotal, specifier: "%.2f")")
-                        .isRed(tipPercentages[tipPercentage] == 0)
+                        .foregroundColor(isStingy ? .red : .black)
                 }
                 // Day 18 Challenge 1: Add a header to the third section, saying “Amount per person”
                 Section(header: Text("Amount per person")) {
                     Text("£\(totalPerPerson, specifier: "%.2f")")
-                        .isRed(tipPercentages[tipPercentage] == 0)
+                        .foregroundColor(isStingy ? .red : .black)
                 }
             }
             .navigationBarTitle("WeSplit")
@@ -90,8 +95,8 @@ extension UIApplication {
     }
 }
 
-// MARK: - Day 23 Challenge 2
-// Style the total amount red if 0% tip is picked
+// MARK: - Day 23 Challenge 2 alternate idea
+// ViewModifier using a conditional modifier
 struct RedOrBlack: ViewModifier {
     var isRed: Bool
     
