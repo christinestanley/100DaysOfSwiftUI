@@ -64,10 +64,12 @@ struct ContentView: View {
                 // Day 18 Challenge 2: Add another section showing the total amount for the check – i.e., the original amount plus tip value, without dividing by the number of people.
                 Section(header: Text("Total including tip")) {
                     Text("£\(grandTotal, specifier: "%.2f")")
+                        .isRed(tipPercentages[tipPercentage] == 0)
                 }
                 // Day 18 Challenge 1: Add a header to the third section, saying “Amount per person”
                 Section(header: Text("Amount per person")) {
                     Text("£\(totalPerPerson, specifier: "%.2f")")
+                        .isRed(tipPercentages[tipPercentage] == 0)
                 }
             }
             .navigationBarTitle("WeSplit")
@@ -85,5 +87,22 @@ struct ContentView_Previews: PreviewProvider {
 extension UIApplication {
     func endEditing() {
         sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+
+// MARK: - Day 23 Challenge 2
+// Style the total amount red if 0% tip is picked
+struct RedOrBlack: ViewModifier {
+    var isRed: Bool
+    
+    func body(content: Content) -> some View {
+        content
+            .foregroundColor(isRed ? .red : .black)
+    }
+}
+
+extension View {
+    func isRed(_ isRed: Bool) -> some View {
+        self.modifier(RedOrBlack(isRed: isRed))
     }
 }
