@@ -8,6 +8,22 @@
 
 import SwiftUI
 
+// MARK: - Day 24 Challenge 3: Create a FlagImage() view
+struct FlagImage: View {
+    var flagName: String
+    
+    var body: some View {
+        Image(flagName)
+            .renderingMode(.original)
+            .clipShape(Capsule())
+            .overlay(Capsule().stroke(Color.black, lineWidth: 1))
+            .shadow(color: .black, radius: 2)
+    }
+    
+    init (_ flagName: String) {
+        self.flagName = flagName
+    }
+}
 
 
 struct ContentView: View {
@@ -37,11 +53,7 @@ struct ContentView: View {
                     Button(action: {
                         self.flagTapped(number)
                     }) {
-                        Image(self.countries[number])
-                            .renderingMode(.original)
-                            .clipShape(Capsule())
-                            .overlay(Capsule().stroke(Color.black, lineWidth: 1))
-                            .shadow(color: .black, radius: 2)
+                        FlagImage(self.countries[number])
                     }
                 }
                 Text("Score: \(score)")
