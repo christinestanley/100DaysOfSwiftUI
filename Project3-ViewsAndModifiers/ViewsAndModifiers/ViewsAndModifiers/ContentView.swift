@@ -61,7 +61,7 @@ extension View {
     }
 }
 
-//MARK: - Custom Containers
+// MARK: - Custom Containers
 struct GridStack<Content: View>: View {
     let rows: Int
     let columns: Int
@@ -84,6 +84,23 @@ struct GridStack<Content: View>: View {
         self.rows = rows
         self.columns = columns
         self.content = content
+    }
+}
+
+// MARK: - Callenge 1
+// Create a custom ViewModifier (and accompanying View extension) that makes a view have a large, blue font suitable for prominent titles in a view.
+
+struct LargeBlueTitle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundColor(.blue)
+    }
+}
+
+extension View {
+    func largeBlueTitleStyle() -> some View {
+        self.modifier(LargeBlueTitle())
     }
 }
 
@@ -228,9 +245,15 @@ struct ContentView: View {
                         Image(systemName: "\(row * 4 + col).circle")
                         Text("R\(row),C\(col)")
                 }
+                    .font(.body)
+                
+                Text("Challenge 1")
+                    
                 
                 Spacer()
             }
+            .largeBlueTitleStyle()
+                
             .tabItem {
                 Image(systemName: "10.square.fill")
                 Text("")
