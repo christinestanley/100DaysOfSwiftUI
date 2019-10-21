@@ -18,7 +18,13 @@ struct ContentView: View {
     @State private var showingAlert = false
     
     var body: some View {
-        NavigationView {
+        VStack {
+            Text("BetterRest")
+                .font(.largeTitle)
+                .fontWeight(.black)
+            Text("Go to bed by \(formattedBedtime)")
+                .font(.title)
+                .foregroundColor(afterBedtime ? .red : .green)
             Form {
                 Section(header: Text("When do you want to wake up?")) {
                     DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
@@ -49,17 +55,18 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationBarTitle("BetterRest")
-            .navigationBarItems(trailing:
-                Button(action: calculateBedtime) {
-                    Text("Calculate")
-                }
-            )
-                .alert(isPresented: $showingAlert) {
-                    Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
-            }
+            
+            
+            // Challenge 3: navigation bar item example removed
+            // .navigationBarItems(trailing:
+            //     Button(action: calculateBedtime) {
+            //         Text("Calculate")
+            //     }
+            // )
+            //     .alert(isPresented: $showingAlert) {
+            //         Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+            // }
         }
-        
     }
     
     static var defaultWakeTime: Date {
@@ -69,27 +76,62 @@ struct ContentView: View {
         return Calendar.current.date(from: components) ?? Date()
     }
     
-    func calculateBedtime() {
+    private var bedtime: Date {
         let model = SleepCalculator()
         
-        let components = Calendar.current.dateComponents([.hour, .minute], from: wakeUp)
+        do {
+            let prediction = try model.prediction(wake: timeInSeconds(wakeUp), estimatedSleep: sleepAmount, coffee: Double(coffeeAmount))
+            return wakeUp - prediction.actualSleep
+            
+        } catch {
+            return Date() // If in doubt go to bed!
+        }
+    }
+    
+    private var formattedBedtime: String {
+            let formatter = DateFormatter()
+            formatter.timeStyle = .short
+        return formatter.string(from: bedtime)
+    }
+    
+    private var afterBedtime: Bool {
+        if timeInSeconds(wakeUp) < timeInSeconds(bedtime) {
+            return timeInSeconds(bedtime) < timeInSeconds(Date())
+        } else {
+            return (timeInSeconds(Date()) > timeInSeconds(bedtime)) && (timeInSeconds(Date()) < timeInSeconds(wakeUp))
+        }
+    }
+    
+    private func timeInSeconds(_ date: Date) -> Double {
+        let components = Calendar.current.dateComponents([.hour, .minute], from: date)
         let hour = (components.hour ?? 0) * 60 * 60
         let minute = (components.minute ?? 0) * 60
         
-        do {
-            let prediction = try model.prediction(wake: Double(hour + minute), estimatedSleep: sleepAmount, coffee: Double(coffeeAmount))
-            let sleepTime = wakeUp - prediction.actualSleep
-            let formatter = DateFormatter()
-            formatter.timeStyle = .short
-            alertMessage = formatter.string(from: sleepTime)
-            alertTitle = "Your ideal bedtime is..."
-        } catch {
-            alertTitle = "Error"
-            alertMessage = "Sorry, there was a problem calculating your bedtime."
-        }
-        
-        showingAlert = true
+        return Double(hour + minute)
     }
+    
+// Challenge 3 alert removed
+//    func calculateBedtime() {
+//        let model = SleepCalculator()
+//
+//        let components = Calendar.current.dateComponents([.hour, .minute], from: wakeUp)
+//        let hour = (components.hour ?? 0) * 60 * 60
+//        let minute = (components.minute ?? 0) * 60
+//
+//        do {
+//            let prediction = try model.prediction(wake: Double(hour + minute), estimatedSleep: sleepAmount, coffee: Double(coffeeAmount))
+//            let sleepTime = wakeUp - prediction.actualSleep
+//            let formatter = DateFormatter()
+//            formatter.timeStyle = .short
+//            alertMessage = formatter.string(from: sleepTime)
+//            alertTitle = "Your ideal bedtime is..."
+//        } catch {
+//            alertTitle = "Error"
+//            alertMessage = "Sorry, there was a problem calculating your bedtime."
+//        }
+//
+//        showingAlert = true
+//    }
 }
 
 struct ContentView_Previews: PreviewProvider {
