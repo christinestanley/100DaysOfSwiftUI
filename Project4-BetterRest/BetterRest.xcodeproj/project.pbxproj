@@ -13,6 +13,7 @@
 		831EC1D2235CCE5400839BF5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 831EC1D1235CCE5400839BF5 /* Assets.xcassets */; };
 		831EC1D5235CCE5400839BF5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 831EC1D4235CCE5400839BF5 /* Preview Assets.xcassets */; };
 		831EC1D8235CCE5400839BF5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 831EC1D6235CCE5400839BF5 /* LaunchScreen.storyboard */; };
+		831EC1E0235DF62C00839BF5 /* SleepCalculator.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 831EC1DF235DF62C00839BF5 /* SleepCalculator.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		831EC1D4235CCE5400839BF5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		831EC1D7235CCE5400839BF5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		831EC1D9235CCE5400839BF5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		831EC1DF235DF62C00839BF5 /* SleepCalculator.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SleepCalculator.mlmodel; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				831EC1D1235CCE5400839BF5 /* Assets.xcassets */,
 				831EC1D6235CCE5400839BF5 /* LaunchScreen.storyboard */,
 				831EC1D9235CCE5400839BF5 /* Info.plist */,
+				831EC1DF235DF62C00839BF5 /* SleepCalculator.mlmodel */,
 				831EC1D3235CCE5400839BF5 /* Preview Content */,
 			);
 			path = BetterRest;
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				831EC1CC235CCE5200839BF5 /* AppDelegate.swift in Sources */,
+				831EC1E0235DF62C00839BF5 /* SleepCalculator.mlmodel in Sources */,
 				831EC1CE235CCE5200839BF5 /* SceneDelegate.swift in Sources */,
 				831EC1D0235CCE5200839BF5 /* ContentView.swift in Sources */,
 			);
