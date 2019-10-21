@@ -33,6 +33,13 @@ struct ContentView: View {
                 }
                 
                 Section(header: Text("Daily coffee intake")) {
+                    // Challenge 2: complete but Stepper seems a better choice here
+                    // Picker("Select coffee amount", selection: $coffeeAmount) {
+                    //     ForEach( 0...20, id: \.self) {
+                    //         Text("\($0) Cup\($0 == 1 ? "" : "s")")
+                    //     }
+                    // }
+                    // .labelsHidden()
                     Stepper(value: $coffeeAmount, in: 0...20) {
                         if coffeeAmount == 1 {
                             Text("1 cup")
