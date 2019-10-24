@@ -62,6 +62,17 @@ struct ContentView: View {
             return
         }
         
+        // Day 31 - challenge 1: Disallow words less than 3 letters or the original word
+        guard answer.count > 2 else {
+            wordError(title: "Word too short", message: "Words must be at least 3 letters!")
+            return
+        }
+        
+        guard answer != rootWord else {
+            wordError(title: "Nice try...", message: "...but just using the original word is cheating!")
+            return
+        }
+        
         usedWords.insert(answer, at: 0)
         newWord = ""
     }
