@@ -31,6 +31,9 @@ struct ContentView: View {
                 }
             }
             .navigationBarTitle(rootWord)
+            // Day 31 - challenge 2: Add a left bar button to call startGame()
+            //.navigationBarItems(leading: Button("New Game") { self.startGame()})
+            .navigationBarItems(leading: Button(action: startGame) { Text("New Game") })
             .onAppear(perform: startGame)
             .alert(isPresented: $showingError) {
                 Alert(title: Text(errorTitle), message: Text(errorMessage), dismissButton: .default(Text("OK")))
@@ -87,6 +90,8 @@ struct ContentView: View {
                 
                 // 4. Pick one random word, or use "silkworm" as a sensible default
                 rootWord = allWords.randomElement() ?? "silkworm"
+                usedWords = []
+                newWord = ""
                 
                 // If we are here everything has worked, so we can exit
                 return
