@@ -17,6 +17,11 @@ struct ContentView: View {
     @State private var errorMessage = ""
     @State private var showingError = false
     
+    // Day 31 - challenge 3: keep score
+    private var score: Int {
+        return usedWords.reduce(0) { $0 + $1.count - 2 }
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -29,6 +34,10 @@ struct ContentView: View {
                     Image(systemName: "\($0.count).circle")
                     Text($0)
                 }
+                
+                Text("Score: \(score)")
+                    .font(.title)
+                    .fontWeight(.bold)
             }
             .navigationBarTitle(rootWord)
             // Day 31 - challenge 2: Add a left bar button to call startGame()
