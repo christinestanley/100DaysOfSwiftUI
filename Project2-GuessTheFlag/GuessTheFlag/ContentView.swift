@@ -25,11 +25,15 @@ struct FlagImage: View {
     }
 }
 
-
 struct ContentView: View {
     @State private var showingScore = false
     @State private var scoreTitle = ""
     @State private var score = 0
+    
+    // Day 34 additional state properties
+    // TODO: - Refactor to use custom button with rotation and scale state
+    @State private var rotationAmount = [0.0, 0.0, 0.0]
+    @State private var scaleAmount: [CGFloat] = [1.0, 1.0, 1.0]
     
     @State private var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Russia", "Spain", "UK", "US"].shuffled()
     @State private var correctAnswer = Int.random(in: 0...2)
@@ -51,10 +55,16 @@ struct ContentView: View {
                 
                 ForEach(0..<3) { number in
                     Button(action: {
-                        self.flagTapped(number)
+                        withAnimation(.easeOut(duration: 0.5)) {
+                            self.flagTapped(number)
+                        }
                     }) {
                         FlagImage(self.countries[number])
                     }
+                    .animation(.easeIn(duration: 0.2))
+                    .opacity(self.showingScore && number != self.correctAnswer ? 0.3 : 1.0)
+                    .rotation3DEffect(.degrees(self.rotationAmount[number]), axis: (x:0, y:1, z:0))
+                    .scaleEffect(self.scaleAmount[number])
                 }
                 Text("Score: \(score)")
                     .foregroundColor(.white)
@@ -72,9 +82,11 @@ struct ContentView: View {
     
     func flagTapped(_ number: Int) {
         if number == correctAnswer {
+            rotationAmount[number] += 360
             scoreTitle = "Correct!"
             score += 1
         } else {
+            scaleAmount[number] = 0.2
             scoreTitle = "Wrong! That's the flag of \(countries[number])"
             score -= 1
         }
@@ -82,6 +94,7 @@ struct ContentView: View {
     }
     
     func askQuestion() {
+        scaleAmount = [1.0, 1.0, 1.0]
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
     }
