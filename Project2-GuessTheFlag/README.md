@@ -19,3 +19,10 @@ You’re going to need to download some files for this project, which you can do
 ## Further Challenges
 ### Day 24 Challenge 3
 Create a `FlagImage()` view that renders one flag image using the specific set of modifiers we had.
+
+### Day 34 Challenges
+1. When you tap the correct flag, make it spin around 360 degrees on the Y axis.
+
+2. Make the other two buttons fade out to 25% opacity.
+
+3. And if you tap on the wrong flag? Well, that’s down to you – get creative!
