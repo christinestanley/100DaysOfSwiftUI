@@ -35,6 +35,23 @@ struct ExpenseItem: Identifiable, Codable {
     let name: String
     let type: String
     let amount: Int
+    
+    enum ExpenseSize {
+        case small
+        case medium
+        case large
+    }
+    
+    var size: ExpenseSize {
+        switch amount {
+        case ..<10 :
+            return .small
+        case 10..<100:
+            return .medium
+        default :
+            return .large
+        }
+    }
 }
 
 struct ContentView: View {
@@ -46,6 +63,10 @@ struct ContentView: View {
             List {
                 ForEach(expenses.items) { item in
                     HStack {
+                        Circle()
+                            .fill(self.highlight(for: item.size))
+                            .frame(width: 20, height: 20)
+                        
                         VStack(alignment: .leading) {
                             Text(item.name)
                                 .font(.headline)
@@ -55,6 +76,8 @@ struct ContentView: View {
                         Spacer()
                         
                         Text("£\(item.amount)")
+                            .fontWeight(.bold)
+                            .foregroundColor(self.highlight(for: item.size))
                     }
                     
                 }
@@ -76,6 +99,17 @@ struct ContentView: View {
     
     func removeItems(at offsets: IndexSet) {
         expenses.items.remove(atOffsets: offsets)
+    }
+    
+    func highlight(for size: ExpenseItem.ExpenseSize) -> Color {
+        switch size {
+        case .small:
+            return Color.green
+        case .medium:
+            return Color.orange
+        case .large:
+            return Color.red
+        }
     }
 }
 
