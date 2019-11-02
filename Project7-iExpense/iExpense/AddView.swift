@@ -16,6 +16,9 @@ struct AddView: View {
     @State private var type = "Personal"
     @State private var amount = ""
     
+    @State private var showAmountAlert = false
+    @State private var itemValidated = false
+    
     static let types = ["Business", "Personal"]
     
     var body: some View {
@@ -30,18 +33,32 @@ struct AddView: View {
                 TextField("Amount", text: $amount)
                     .keyboardType(.numberPad)
             }
-        .navigationBarTitle("Add new expense")
-            .navigationBarItems(trailing: Button("Save") {
-                if let actualAmount = Int(self.amount) {
-                    let item = ExpenseItem(name: self.name, type: self.type, amount: actualAmount)
-                    self.expenses.items.append(item)
-                    self.presentationMode.wrappedValue.dismiss()
+            .navigationBarTitle("Add new expense")
+            .navigationBarItems(
+                trailing: Button("Save") {
+                    self.validateItem()
+                    if self.itemValidated {
+                        self.presentationMode.wrappedValue.dismiss()
+                    } else {
+                        self.showAmountAlert = true
+                    }
                 }
-            })
+                .alert(isPresented: $showAmountAlert) {
+                    Alert(title: Text("Amount must be a whole number"), message: Text("Please try again"), dismissButton: .default(Text("Ok")))
+                }
+            )
+        }
+    }
+    
+    func validateItem() {
+        if let actualAmount = Int(amount) {
+            let item = ExpenseItem(name: name, type: type, amount: actualAmount)
+            expenses.items.append(item)
+            itemValidated = true
         }
     }
 }
-
+    
 struct AddView_Previews: PreviewProvider {
     static var previews: some View {
         AddView(expenses: Expenses())
