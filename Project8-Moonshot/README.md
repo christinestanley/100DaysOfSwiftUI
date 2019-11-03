@@ -12,4 +12,9 @@ Along the way, we’re also going to be tackling one of the common problems you�
 
 At one point in today’s topics I encourage you to stop and play around with the design. I’m sure some folks will skip over this wanting to rush towards the end, but I hope you don’t. As the astronaut John Glenn said, “I suppose the quality in an astronaut more powerful than any other is curiosity – they have to get to some place nobody’s ever been.”
 
+## Content
+The images of astronauts and mission badges were all created by NASA, so under Title 17, Chapter 1, Section 105 of the US Code they are available for us to use under a public domain license.
+
+Astronauts.json includes a short description that has been copied from Wikipedia. If you intend to use the text in your own shipping projects, it’s important you give credit Wikipedia and its authors and make it clear that the work is licensed under CC-BY-SA available from here: https://creativecommons.org/licenses/by-sa/3.0.
+
 ## Challenges
