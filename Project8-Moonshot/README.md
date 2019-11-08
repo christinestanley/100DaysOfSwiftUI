@@ -18,3 +18,8 @@ The images of astronauts and mission badges were all created by NASA, so under T
 Astronauts.json includes a short description that has been copied from Wikipedia. If you intend to use the text in your own shipping projects, it’s important you give credit Wikipedia and its authors and make it clear that the work is licensed under CC-BY-SA available from here: https://creativecommons.org/licenses/by-sa/3.0.
 
 ## Challenges
+1. Add the launch date to MissionView, below the mission badge.
+
+2. Modify AstronautView to show all the missions this astronaut flew on.
+
+3. Make a bar button in ContentView that toggles between showing launch dates and showing crew names.
