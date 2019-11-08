@@ -8,8 +8,6 @@
 
 import SwiftUI
 
-
-
 struct MissionView: View {
     struct CrewMember {
         let role: String
@@ -45,12 +43,13 @@ struct MissionView: View {
                                     .clipShape(Capsule())
                                     .shadow(color: .primary, radius: 5, x: 5, y: 5)
                                     .overlay(Capsule()
-                                        .stroke(Color.primary, lineWidth: 1))
+                                        .stroke(Color.blue, lineWidth: 1))
                                 
                                 VStack(alignment: .leading) {
                                     HStack {
                                         Text(crewMember.astronaut.name)
                                             .font(.headline)
+                                            .foregroundColor(.blue)
                                         if crewMember.role.contains("Commander") {
                                             Image(systemName: "star")
                                         }
