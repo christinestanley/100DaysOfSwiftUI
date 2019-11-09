@@ -98,28 +98,96 @@ struct ColorCyclingCircle: View {
     }
 }
 
+struct Trapezoid: Shape {
+    var insetAmount: CGFloat
+    
+    var animatableData: CGFloat {
+        get { insetAmount }
+        set { self.insetAmount = newValue }
+    }
+
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+
+        path.move(to: CGPoint(x: 0, y: rect.maxY))
+        path.addLine(to: CGPoint(x: insetAmount, y: rect.minY))
+        path.addLine(to: CGPoint(x: rect.maxX - insetAmount, y: rect.minY))
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
+        path.addLine(to: CGPoint(x: 0, y: rect.maxY))
+
+        return path
+   }
+}
+
+struct Checkerboard: Shape {
+    var rows: Int
+    var columns: Int
+    
+    public var animatableData: AnimatablePair<Double, Double> {
+        get {
+           AnimatablePair(Double(rows), Double(columns))
+        }
+
+        set {
+            self.rows = Int(newValue.first)
+            self.columns = Int(newValue.second)
+        }
+    }
+
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+
+        // figure out how big each row/column needs to be
+        let rowSize = rect.height / CGFloat(rows)
+        let columnSize = rect.width / CGFloat(columns)
+
+        // loop over all rows and columns, making alternating squares colored
+        for row in 0..<rows {
+            for column in 0..<columns {
+                if (row + column).isMultiple(of: 2) {
+                    // this square should be colored; add a rectangle here
+                    let startX = columnSize * CGFloat(column)
+                    let startY = rowSize * CGFloat(row)
+
+                    let rect = CGRect(x: startX, y: startY, width: columnSize, height: rowSize)
+                    path.addRect(rect)
+                }
+            }
+        }
+
+        return path
+    }
+}
+
 struct ContentView: View {
     @State private var petalOffset = -20.0
     @State private var petalWidth = 100.0
     
     @State private var colorCycle = 0.0
+    
+    @State private var amount: CGFloat = 0.0
+    
+    @State private var insetAmount: CGFloat = 50
+    
+    @State private var rows = 4
+    @State private var columns = 4
 
     var body: some View {
         TabView {
             // Day 43
             VStack {
                 Path { path in
-                    path.move(to: CGPoint(x: 200, y: 100))
-                    path.addLine(to: CGPoint(x: 100, y: 300))
-                    path.addLine(to: CGPoint(x: 300, y: 300))
-                    path.addLine(to: CGPoint(x: 200, y: 100))
-                    path.addLine(to: CGPoint(x: 100, y: 300))
+                    path.move(to: CGPoint(x: 150, y: 50))
+                    path.addLine(to: CGPoint(x: 50, y: 250))
+                    path.addLine(to: CGPoint(x: 250, y: 250))
+                    path.addLine(to: CGPoint(x: 150, y: 50))
+                    path.addLine(to: CGPoint(x: 50, y: 250))
                 }
                 .stroke(Color.blue, style: StrokeStyle(lineWidth: 10, lineCap: .round, lineJoin: .round))
                 
                 Arc(startAngle: .degrees(0), endAngle: .degrees(110), clockwise: true)
                 .stroke(Color.blue, lineWidth: 10)
-                .frame(width: 300, height: 300)
+                .frame(width: 200, height: 200)
             }
             .tabItem {
                 Image(systemName: "1.circle.fill")
@@ -143,23 +211,84 @@ struct ContentView: View {
                 Image(systemName: "2.circle.fill")
                 Text("")
             }
+            
             VStack {
                 Capsule()
                     .strokeBorder(ImagePaint(image: Image("UK"), scale: 0.5), lineWidth: 20)
-                .frame(width: 300, height: 200)
+                    .frame(width: 200, height: 150)
+                
+                ColorCyclingCircle(amount: self.colorCycle)
+                    .frame(width: 200, height: 200)
+                
+                Slider(value: $colorCycle)
             }
             .tabItem {
                 Image(systemName: "3.circle.fill")
                 Text("")
             }
+            
+            // Day 45
             VStack {
-                ColorCyclingCircle(amount: self.colorCycle)
-                    .frame(width: 300, height: 300)
+                ZStack {
+                    Circle()
+                        .fill(Color.red)
+                        .frame(width: 100 * amount)
+                        .offset(x: -25, y: -40)
+                        .blendMode(.screen)
 
-                Slider(value: $colorCycle)
+                    Circle()
+                        .fill(Color.green)
+                        .frame(width: 100 * amount)
+                        .offset(x: 25, y: -40)
+                        .blendMode(.screen)
+
+                    Circle()
+                        .fill(Color.blue)
+                        .frame(width: 100 * amount)
+                        .blendMode(.screen)
+                }
+                .frame(width: 150, height: 150)
+
+                Slider(value: $amount)
+                    .padding()
+                
+                Image("UK")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 200, height: 200)
+                .saturation(Double(amount))
+                .blur(radius: (1 - amount) * 20)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(Color.black)
+            .edgesIgnoringSafeArea(.all)
             .tabItem {
                 Image(systemName: "4.circle.fill")
+                Text("")
+            }
+            
+            VStack(spacing: 20) {
+                Text("Tap to animate")
+                
+                Trapezoid(insetAmount: insetAmount)
+                .frame(width: 200, height: 100)
+                .onTapGesture {
+                    withAnimation {
+                        self.insetAmount = CGFloat.random(in: 10...90)
+                    }
+                }
+                
+                Checkerboard(rows: rows, columns: columns)
+                .frame(width: 200, height: 200)
+                .onTapGesture {
+                    withAnimation {
+                        self.rows = Int.random(in: 2...8)
+                        self.columns = Int.random(in: 2...8)
+                    }
+                }
+            }
+            .tabItem {
+                Image(systemName: "5.circle.fill")
                 Text("")
             }
         }
