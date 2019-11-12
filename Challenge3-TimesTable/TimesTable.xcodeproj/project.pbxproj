@@ -31,7 +31,7 @@
 		831142AD23672006008B8680 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		831142D8236749ED008B8680 /* Tile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		831142DC2368474E008B8680 /* StartGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartGameView.swift; sourceTree = "<group>"; };
-		831142E22368478D008B8680 /* PickNumberOfQuestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickNumberOfQuestionsView.swift; sourceTree = SOURCE_ROOT; };
+		831142E22368478D008B8680 /* PickNumberOfQuestionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PickNumberOfQuestionsView.swift; path = TimesTable/PickNumberOfQuestionsView.swift; sourceTree = SOURCE_ROOT; };
 		831142E4236847A5008B8680 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		831142E6236847BE008B8680 /* GameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
