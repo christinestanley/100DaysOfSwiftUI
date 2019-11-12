@@ -6,4 +6,6 @@ In this project we’re going to build a multi-screen app for ordering cupcakes.
 
 As we continue to dig deeper and deeper into `Codable`, I hope you’ll continue to be impressed by how flexible and safe it is. In particular, I’d like you to keep in mind how very different it is from the much older `UserDefaults` API – it’s so nice not having to worry about typing strings exactly correctly!
 
+Cupcake images by Brooke Lark / Unsplash.
+
 ## Challenges

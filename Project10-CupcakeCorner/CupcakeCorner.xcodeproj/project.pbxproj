@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		837504FD237B1B6B00BFCF2E /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837504FC237B1B6B00BFCF2E /* Order.swift */; };
+		837504FF237B21F000BFCF2E /* AddressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837504FE237B21F000BFCF2E /* AddressView.swift */; };
+		83750501237B282200BFCF2E /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83750500237B282200BFCF2E /* CheckoutView.swift */; };
 		837CAC7E237967B700CD3FCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837CAC7D237967B700CD3FCF /* AppDelegate.swift */; };
 		837CAC80237967B700CD3FCF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837CAC7F237967B700CD3FCF /* SceneDelegate.swift */; };
 		837CAC82237967B700CD3FCF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 837CAC81237967B700CD3FCF /* ContentView.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		837504FC237B1B6B00BFCF2E /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		837504FE237B21F000BFCF2E /* AddressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressView.swift; sourceTree = "<group>"; };
+		83750500237B282200BFCF2E /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
 		837CAC7A237967B700CD3FCF /* CupcakeCorner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CupcakeCorner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		837CAC7D237967B700CD3FCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		837CAC7F237967B700CD3FCF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +65,9 @@
 				837CAC7D237967B700CD3FCF /* AppDelegate.swift */,
 				837CAC7F237967B700CD3FCF /* SceneDelegate.swift */,
 				837CAC81237967B700CD3FCF /* ContentView.swift */,
+				837504FC237B1B6B00BFCF2E /* Order.swift */,
+				837504FE237B21F000BFCF2E /* AddressView.swift */,
+				83750500237B282200BFCF2E /* CheckoutView.swift */,
 				837CAC83237967B900CD3FCF /* Assets.xcassets */,
 				837CAC88237967B900CD3FCF /* LaunchScreen.storyboard */,
 				837CAC8B237967B900CD3FCF /* Info.plist */,
@@ -148,7 +157,10 @@
 			files = (
 				837CAC7E237967B700CD3FCF /* AppDelegate.swift in Sources */,
 				837CAC80237967B700CD3FCF /* SceneDelegate.swift in Sources */,
+				83750501237B282200BFCF2E /* CheckoutView.swift in Sources */,
+				837504FD237B1B6B00BFCF2E /* Order.swift in Sources */,
 				837CAC82237967B700CD3FCF /* ContentView.swift in Sources */,
+				837504FF237B21F000BFCF2E /* AddressView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
