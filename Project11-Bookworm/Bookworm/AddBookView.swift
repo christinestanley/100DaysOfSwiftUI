@@ -18,7 +18,7 @@ struct AddBookView: View {
     @State private var genre = ""
     @State private var review = ""
     
-    let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
+    let genres = ["Fantasy", "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller", "Uncategorised"]
     
     var body: some View {
         NavigationView{
@@ -45,8 +45,9 @@ struct AddBookView: View {
                         newBook.title = self.title
                         newBook.author = self.author
                         newBook.rating = Int16(self.rating)
-                        newBook.genre = self.genre
+                        newBook.genre = self.genre.isEmpty ? "Uncategorised" : self.genre
                         newBook.review = self.review
+                        newBook.date = Date()
                         
                         try? self.moc.save()
                         self.presentationMode.wrappedValue.dismiss()

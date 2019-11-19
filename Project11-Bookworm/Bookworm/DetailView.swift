@@ -16,14 +16,24 @@ struct DetailView: View {
     
     let book: Book
     
+    private var formattedDate: String {
+        guard let date = book.date else {
+            return "..."
+        }
+        
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter.string(from: date)
+    }
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
                 ZStack(alignment: .bottomTrailing) {
-                    Image(self.book.genre ?? "Fantasy")
+                    Image(self.book.genre ?? "Uncategorised")
                         .frame(maxWidth: geometry.size.width)
                     
-                    Text(self.book.genre?.uppercased() ?? "FANTASY" )
+                    Text(self.book.genre?.uppercased() ?? "UNCATEGORISED" )
                         .font(.caption)
                         .fontWeight(.black)
                         .padding(8)
@@ -37,11 +47,14 @@ struct DetailView: View {
                     .font(.title)
                     .foregroundColor(.secondary)
                 
+                RatingView(rating: .constant(Int(self.book.rating)))
+                    .font(.largeTitle)
+                
                 Text(self.book.review ?? "No Review")
                     .padding()
                 
-                RatingView(rating: .constant(Int(self.book.rating)))
-                    .font(.largeTitle)
+                Text("Added \(self.formattedDate)")
+                    .padding()
                 
                 Spacer()
             }
