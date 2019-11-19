@@ -1,6 +1,6 @@
 # 100DaysOfSwiftUI
 
-## Project 11: Bookworm - day 52
+## Project 11: Bookworm - day 53, 54, 55 and 56
 
 In this project we’re going to build an app to track which books you’ve read and what you thought of them, and it’s going to follow a similar theme to project 10: let’s take all the skills you’ve already mastered, then add some bonus new skills that take them all to a new level.
 
