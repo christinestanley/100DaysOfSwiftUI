@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		8377AA302385965500F09485 /* FilteredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377AA2F2385965500F09485 /* FilteredList.swift */; };
-		8377AA372385A0DA00F09485 /* Resort+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377AA352385A0DA00F09485 /* Resort+CoreDataClass.swift */; };
-		8377AA382385A0DA00F09485 /* Resort+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377AA362385A0DA00F09485 /* Resort+CoreDataProperties.swift */; };
 		8377AA3B2385A12E00F09485 /* Country+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377AA392385A12E00F09485 /* Country+CoreDataClass.swift */; };
 		8377AA3C2385A12E00F09485 /* Country+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377AA3A2385A12E00F09485 /* Country+CoreDataProperties.swift */; };
+		8377AA3F2386E71900F09485 /* Resort+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377AA3D2386E71900F09485 /* Resort+CoreDataClass.swift */; };
+		8377AA402386E71900F09485 /* Resort+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8377AA3E2386E71900F09485 /* Resort+CoreDataProperties.swift */; };
 		83AAF86E23845C3300C727E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AAF86D23845C3300C727E5 /* AppDelegate.swift */; };
 		83AAF87023845C3300C727E5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AAF86F23845C3300C727E5 /* SceneDelegate.swift */; };
 		83AAF87323845C3300C727E5 /* CoreDataProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 83AAF87123845C3300C727E5 /* CoreDataProject.xcdatamodeld */; };
@@ -23,10 +23,10 @@
 
 /* Begin PBXFileReference section */
 		8377AA2F2385965500F09485 /* FilteredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilteredList.swift; sourceTree = "<group>"; };
-		8377AA352385A0DA00F09485 /* Resort+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resort+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		8377AA362385A0DA00F09485 /* Resort+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resort+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		8377AA392385A12E00F09485 /* Country+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+CoreDataClass.swift"; sourceTree = "<group>"; };
 		8377AA3A2385A12E00F09485 /* Country+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Country+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8377AA3D2386E71900F09485 /* Resort+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resort+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8377AA3E2386E71900F09485 /* Resort+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resort+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		83AAF86A23845C3300C727E5 /* CoreDataProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83AAF86D23845C3300C727E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83AAF86F23845C3300C727E5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -68,10 +68,10 @@
 		83AAF86C23845C3300C727E5 /* CoreDataProject */ = {
 			isa = PBXGroup;
 			children = (
+				8377AA3D2386E71900F09485 /* Resort+CoreDataClass.swift */,
+				8377AA3E2386E71900F09485 /* Resort+CoreDataProperties.swift */,
 				8377AA392385A12E00F09485 /* Country+CoreDataClass.swift */,
 				8377AA3A2385A12E00F09485 /* Country+CoreDataProperties.swift */,
-				8377AA352385A0DA00F09485 /* Resort+CoreDataClass.swift */,
-				8377AA362385A0DA00F09485 /* Resort+CoreDataProperties.swift */,
 				83AAF86D23845C3300C727E5 /* AppDelegate.swift */,
 				83AAF86F23845C3300C727E5 /* SceneDelegate.swift */,
 				83AAF87423845C3300C727E5 /* ContentView.swift */,
@@ -164,13 +164,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8377AA372385A0DA00F09485 /* Resort+CoreDataClass.swift in Sources */,
+				8377AA3F2386E71900F09485 /* Resort+CoreDataClass.swift in Sources */,
 				83AAF86E23845C3300C727E5 /* AppDelegate.swift in Sources */,
 				83AAF87023845C3300C727E5 /* SceneDelegate.swift in Sources */,
 				8377AA302385965500F09485 /* FilteredList.swift in Sources */,
-				8377AA382385A0DA00F09485 /* Resort+CoreDataProperties.swift in Sources */,
 				83AAF87523845C3300C727E5 /* ContentView.swift in Sources */,
 				8377AA3B2385A12E00F09485 /* Country+CoreDataClass.swift in Sources */,
+				8377AA402386E71900F09485 /* Resort+CoreDataProperties.swift in Sources */,
 				83AAF87323845C3300C727E5 /* CoreDataProject.xcdatamodeld in Sources */,
 				8377AA3C2385A12E00F09485 /* Country+CoreDataProperties.swift in Sources */,
 			);

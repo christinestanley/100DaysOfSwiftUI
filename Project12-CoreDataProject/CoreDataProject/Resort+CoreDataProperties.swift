@@ -2,7 +2,7 @@
 //  Resort+CoreDataProperties.swift
 //  CoreDataProject
 //
-//  Created by Chris on 20/11/2019.
+//  Created by Chris on 21/11/2019.
 //  Copyright © 2019 Earlswood Marketiing Ltd. All rights reserved.
 //
 //

@@ -24,12 +24,23 @@ struct FilteredList<T: NSManagedObject, Content: View>: View {
         }
     }
     
-    init(filterKey: String, filterValue: String, @ViewBuilder content: @escaping (T) -> Content) {
+    init(filterKey: String, filterValue: String, filterType: FilterType, sortBy: [NSSortDescriptor], @ViewBuilder content: @escaping (T) -> Content) {
         
-        let sortDescriptor = NSSortDescriptor(key: filterKey, ascending: true)
-        let predicate: NSPredicate? = (filterValue != "" ? NSPredicate(format: "%K BEGINSWITH %@", filterKey, filterValue) : nil)
+        //let sortDescriptor = NSSortDescriptor(key: filterKey, ascending: true)
+        var predicate: NSPredicate?
         
-        fetchRequest = FetchRequest<T>(entity: T.entity(), sortDescriptors: [sortDescriptor], predicate: predicate)
+        switch filterType {
+        case .equals:
+            predicate = (filterValue != "" ? NSPredicate(format: "%K == %@", filterKey, filterValue) : nil)
+        case .lessThan:
+            predicate = (filterValue != "" ? NSPredicate(format: "%K < %@", filterKey, filterValue) : nil)
+        case .beginsWith:
+            predicate = (filterValue != "" ? NSPredicate(format: "%K BEGINSWITH %@", filterKey, filterValue) : nil)
+        case .not:
+            predicate = (filterValue != "" ? NSPredicate(format: "NOT %K == %@", filterKey, filterValue) : nil)
+        }
+        
+        fetchRequest = FetchRequest<T>(entity: T.entity(), sortDescriptors: sortBy, predicate: predicate)
         self.content = content
     }
     
