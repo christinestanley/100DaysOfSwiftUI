@@ -13,6 +13,9 @@
 		83D8B583238C5FDD00F0D7EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83D8B582238C5FDD00F0D7EF /* Assets.xcassets */; };
 		83D8B586238C5FDD00F0D7EF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83D8B585238C5FDD00F0D7EF /* Preview Assets.xcassets */; };
 		83D8B589238C5FDD00F0D7EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83D8B587238C5FDD00F0D7EF /* LaunchScreen.storyboard */; };
+		83D8B591238C62AE00F0D7EF /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D8B590238C62AE00F0D7EF /* Friend.swift */; };
+		83D8B593238C630500F0D7EF /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D8B592238C630500F0D7EF /* User.swift */; };
+		83D8B595238C6DF500F0D7EF /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83D8B594238C6DF500F0D7EF /* UserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		83D8B585238C5FDD00F0D7EF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		83D8B588238C5FDD00F0D7EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83D8B58A238C5FDD00F0D7EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83D8B590238C62AE00F0D7EF /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
+		83D8B592238C630500F0D7EF /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		83D8B594238C6DF500F0D7EF /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +62,12 @@
 		83D8B57B238C5FDB00F0D7EF /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				83D8B590238C62AE00F0D7EF /* Friend.swift */,
+				83D8B592238C630500F0D7EF /* User.swift */,
 				83D8B57C238C5FDB00F0D7EF /* AppDelegate.swift */,
 				83D8B57E238C5FDB00F0D7EF /* SceneDelegate.swift */,
 				83D8B580238C5FDB00F0D7EF /* ContentView.swift */,
+				83D8B594238C6DF500F0D7EF /* UserView.swift */,
 				83D8B582238C5FDD00F0D7EF /* Assets.xcassets */,
 				83D8B587238C5FDD00F0D7EF /* LaunchScreen.storyboard */,
 				83D8B58A238C5FDD00F0D7EF /* Info.plist */,
@@ -147,8 +156,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				83D8B57D238C5FDB00F0D7EF /* AppDelegate.swift in Sources */,
+				83D8B595238C6DF500F0D7EF /* UserView.swift in Sources */,
 				83D8B57F238C5FDB00F0D7EF /* SceneDelegate.swift in Sources */,
 				83D8B581238C5FDB00F0D7EF /* ContentView.swift in Sources */,
+				83D8B593238C630500F0D7EF /* User.swift in Sources */,
+				83D8B591238C62AE00F0D7EF /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +228,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +282,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
