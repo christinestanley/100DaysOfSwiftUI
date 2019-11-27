@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import CoreData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,8 +20,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
-        // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView()
+        // Get the managed object context from the shared persistent container.
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        // Merge duplicate items based on their properties
+        // 100DaysOfSwiftUI Day 57 Video 5 Project 12 part 1
+        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        
+        // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
+        // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
+        let contentView = ContentView().environment(\.managedObjectContext, context)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
