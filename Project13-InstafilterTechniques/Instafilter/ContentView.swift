@@ -51,6 +51,8 @@ struct ContentView: View {
         
         let context = CIContext()
         let currentFilter = CIFilter.sepiaTone()
+        
+        // inputImage property is often broken so for its safer in general to use .setValue(image, forKey: kCIinputImageKey)
         currentFilter.inputImage = beginImage
         currentFilter.intensity = 1
         
