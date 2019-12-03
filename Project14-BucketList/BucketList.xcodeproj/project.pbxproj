@@ -13,6 +13,7 @@
 		833E02CE23955ED000C085A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 833E02CD23955ED000C085A8 /* Assets.xcassets */; };
 		833E02D123955ED000C085A8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 833E02D023955ED000C085A8 /* Preview Assets.xcassets */; };
 		833E02D423955ED000C085A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 833E02D223955ED000C085A8 /* LaunchScreen.storyboard */; };
+		833E02DC23967C0900C085A8 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 833E02DB23967C0900C085A8 /* MapView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		833E02D023955ED000C085A8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		833E02D323955ED000C085A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		833E02D523955ED000C085A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		833E02DB23967C0900C085A8 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				833E02C723955ECE00C085A8 /* AppDelegate.swift */,
 				833E02C923955ECE00C085A8 /* SceneDelegate.swift */,
 				833E02CB23955ECE00C085A8 /* ContentView.swift */,
+				833E02DB23967C0900C085A8 /* MapView.swift */,
 				833E02CD23955ED000C085A8 /* Assets.xcassets */,
 				833E02D223955ED000C085A8 /* LaunchScreen.storyboard */,
 				833E02D523955ED000C085A8 /* Info.plist */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				833E02C823955ECE00C085A8 /* AppDelegate.swift in Sources */,
+				833E02DC23967C0900C085A8 /* MapView.swift in Sources */,
 				833E02CA23955ECE00C085A8 /* SceneDelegate.swift in Sources */,
 				833E02CC23955ECE00C085A8 /* ContentView.swift in Sources */,
 			);
