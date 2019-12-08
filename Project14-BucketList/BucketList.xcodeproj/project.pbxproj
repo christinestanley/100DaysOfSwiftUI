@@ -17,7 +17,8 @@
 		8349E48A239AA05200B4129D /* MKPointAnnotation-ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8349E489239AA05200B4129D /* MKPointAnnotation-ObservableObject.swift */; };
 		8349E48C239AA1C100B4129D /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8349E48B239AA1C100B4129D /* EditView.swift */; };
 		8349E48E239AAA0700B4129D /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8349E48D239AAA0700B4129D /* Result.swift */; };
-		8349E490239AB1FF00B4129D /* URLSession-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8349E48F239AB1FF00B4129D /* URLSession-Decodable.swift */; };
+		8349E492239D59FA00B4129D /* FileManager-Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8349E491239D59FA00B4129D /* FileManager-Codable.swift */; };
+		8349E494239D7B0800B4129D /* MKPointAnnotation-Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8349E493239D7B0800B4129D /* MKPointAnnotation-Codable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +34,8 @@
 		8349E489239AA05200B4129D /* MKPointAnnotation-ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPointAnnotation-ObservableObject.swift"; sourceTree = "<group>"; };
 		8349E48B239AA1C100B4129D /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		8349E48D239AAA0700B4129D /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		8349E48F239AB1FF00B4129D /* URLSession-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession-Decodable.swift"; sourceTree = "<group>"; };
+		8349E491239D59FA00B4129D /* FileManager-Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-Codable.swift"; sourceTree = "<group>"; };
+		8349E493239D7B0800B4129D /* MKPointAnnotation-Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPointAnnotation-Codable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +74,9 @@
 				8349E48D239AAA0700B4129D /* Result.swift */,
 				833E02DB23967C0900C085A8 /* MapView.swift */,
 				8349E48B239AA1C100B4129D /* EditView.swift */,
-				8349E48F239AB1FF00B4129D /* URLSession-Decodable.swift */,
+				8349E491239D59FA00B4129D /* FileManager-Codable.swift */,
 				8349E489239AA05200B4129D /* MKPointAnnotation-ObservableObject.swift */,
+				8349E493239D7B0800B4129D /* MKPointAnnotation-Codable.swift */,
 				833E02CD23955ED000C085A8 /* Assets.xcassets */,
 				833E02D223955ED000C085A8 /* LaunchScreen.storyboard */,
 				833E02D523955ED000C085A8 /* Info.plist */,
@@ -165,10 +168,11 @@
 				833E02DC23967C0900C085A8 /* MapView.swift in Sources */,
 				8349E48C239AA1C100B4129D /* EditView.swift in Sources */,
 				833E02CA23955ECE00C085A8 /* SceneDelegate.swift in Sources */,
-				8349E490239AB1FF00B4129D /* URLSession-Decodable.swift in Sources */,
 				8349E48E239AAA0700B4129D /* Result.swift in Sources */,
 				8349E48A239AA05200B4129D /* MKPointAnnotation-ObservableObject.swift in Sources */,
+				8349E494239D7B0800B4129D /* MKPointAnnotation-Codable.swift in Sources */,
 				833E02CC23955ECE00C085A8 /* ContentView.swift in Sources */,
+				8349E492239D59FA00B4129D /* FileManager-Codable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
