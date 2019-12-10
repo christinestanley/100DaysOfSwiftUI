@@ -11,45 +11,17 @@ import MapKit
 import SwiftUI
 
 struct ContentView: View {
-    @State private var centerCoordinate = CLLocationCoordinate2D()
     @State private var locations = [CodableMKPointAnnotation]()
     @State private var selectedPlace: MKPointAnnotation?
-    @State private var showingPlaceDetails = false
     @State private var showingEditScreen = false
     @State private var isUnlocked = false
+    @State private var authenticationFailed = false
+    @State private var authenticationMessage = ""
     
     var body: some View {
         ZStack {
             if isUnlocked {
-                MapView(centerCoordinate: $centerCoordinate, selectedPlace: $selectedPlace, showingPlaceDetails: $showingPlaceDetails, annotations: locations)
-                    .edgesIgnoringSafeArea(.all)
-                Circle()
-                    .fill(Color.blue)
-                    .opacity(0.3)
-                    .frame(width:32, height: 32)
-                VStack {
-                    Spacer()
-                    HStack {
-                        Spacer()
-                        Button(action: {
-                            let newLocation = CodableMKPointAnnotation()
-                            newLocation.coordinate = self.centerCoordinate
-                            newLocation.title = "Example Location"
-                            self.locations.append(newLocation)
-                            
-                            self.selectedPlace = newLocation
-                            self.showingEditScreen = true
-                        }) {
-                            Image(systemName: "plus")
-                                .padding()
-                                .background(Color.black.opacity(0.75))
-                                .foregroundColor(.white)
-                                .font(.title)
-                                .clipShape(Circle())
-                                .padding(.trailing)
-                        }
-                    }
-                }
+                AnnotatingMapView( selectedPlace: $selectedPlace, showingEditScreen: $showingEditScreen, annotations: $locations)
             } else {
                 Button("Unlock Places") {
                     self.authenticate()
@@ -60,10 +32,8 @@ struct ContentView: View {
                 .clipShape(Capsule())
             }
         }
-        .alert(isPresented: $showingPlaceDetails) {
-            Alert(title: Text(selectedPlace?.title ?? "Unknown"), message: Text(selectedPlace?.subtitle ?? "Missing place information."), primaryButton: .default(Text("OK")), secondaryButton: .default(Text("Edit")) {
-                self.showingEditScreen = true
-            })
+        .alert(isPresented: $authenticationFailed) {
+            Alert(title: Text("Authentication Failed"), message: Text(authenticationMessage), dismissButton: .default(Text("OK")))
         }
         .sheet(isPresented: $showingEditScreen, onDismiss: saveData) {
             if self.selectedPlace != nil {
@@ -113,12 +83,14 @@ struct ContentView: View {
                     if success {
                         self.isUnlocked = true
                     } else {
-                        // error
+                        self.authenticationMessage = "\(authenticationError?.localizedDescription ?? "error")"
+                        self.authenticationFailed = true
                     }
                 }
             }
         } else {
-            // no biometrics
+            self.authenticationMessage = "Sorry, biometric authentication is required!"
+            self.authenticationFailed = true
         }
     }
 }
