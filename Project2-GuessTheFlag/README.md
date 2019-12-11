@@ -26,3 +26,6 @@ Create a `FlagImage()` view that renders one flag image using the specific set o
 2. Make the other two buttons fade out to 25% opacity.
 
 3. And if you tap on the wrong flag? Well, that’s down to you – get creative!
+
+### Day 75
+Add accessibilty text to the flags.
