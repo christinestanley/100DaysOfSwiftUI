@@ -10,3 +10,6 @@ Along the way you’ll meet `List`, `onAppear()`, `Bundle`, `fatalError()`, and 
 2. Add a left bar button item that calls `startGame()`, so users can restart with a new word whenever they want to.
 
 3. Put a text view below the `List` so you can track and show the player’s score for a given root word. How you calculate score is down to you, but something involving number of words and their letter count would be reasonable.
+
+### Day 75
+Add improved accessibility description to found words
