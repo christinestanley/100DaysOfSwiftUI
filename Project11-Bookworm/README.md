@@ -16,3 +16,6 @@ Unsplash has a license that allows us to use pictures commercially or non-commer
 2. Modify `ContentView` so that books rated as 1 star have their name shown in red.
 
 3. Add a new “date” attribute to the Book entity, assigning `Date()` to it so it gets the current date and time, then format that nicely somewhere in `DetailView`.
+
+### Day 75
+Add improved accessibility for VoiceOver support on the RatingView
