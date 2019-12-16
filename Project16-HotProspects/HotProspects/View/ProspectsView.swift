@@ -8,6 +8,7 @@
 
 import CodeScanner
 import SwiftUI
+import UserNotifications
 
 enum FilterType {
     case none, contacted, uncontacted
@@ -42,21 +43,31 @@ struct ProspectsView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(filteredProspects) { prospect in
-                    VStack(alignment: .leading) {
-                        Text(prospect.name)
-                            .font(.headline)
-                        Text(prospect.emailAddress)
-                            .foregroundColor(.secondary)
-                    }
-                    .contextMenu {
-                        Button(prospect.isContacted ? "Mark Uncontacted" : "Mark Contacted") {
-                            self.prospects.toggle(prospect)
+            VStack {
+                if !filteredProspects.isEmpty {
+                    Text("[Long press to update contact!]")
+                    .font(.headline)
+                }
+                List {
+                    ForEach(filteredProspects) { prospect in
+                        VStack(alignment: .leading) {
+                            Text(prospect.name)
+                                .font(.headline)
+                            Text(prospect.emailAddress)
+                                .foregroundColor(.secondary)
+                        }
+                        .contextMenu {
+                            Button(prospect.isContacted ? "Mark Uncontacted" : "Mark Contacted") {
+                                self.prospects.toggle(prospect)
+                            }
+                            if !prospect.isContacted {
+                                Button("Remind Me") {
+                                    self.addNotification(for: prospect)
+                                }
+                            }
                         }
                     }
-                }
-            }
+                } }
                 .navigationBarTitle(title)
                 .navigationBarItems(trailing: Button(action: {
                     self.isShowingScanner = true
@@ -81,9 +92,43 @@ struct ProspectsView: View {
             person.name = details[0]
             person.emailAddress = details[1]
 
-            self.prospects.people.append(person)
+            self.prospects.add(person)
+            
         case .failure(let error):
-            print("Scanning failed")
+            print("Scanning failed: \(error.localizedDescription)")
+        }
+    }
+    
+    func addNotification(for prospect: Prospect) {
+        let center = UNUserNotificationCenter.current()
+        
+        let addRequest = {
+            let content = UNMutableNotificationContent()
+            content.title = "Contact \(prospect.name)"
+            content.subtitle = prospect.emailAddress
+            content.sound = UNNotificationSound.default
+            
+            var dateComponents = DateComponents()
+            dateComponents.hour = 9
+            //let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+            let testTrigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+            
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: testTrigger)
+            center.add(request)
+        }
+        
+        center.getNotificationSettings { settings in
+            if settings.authorizationStatus == .authorized {
+                addRequest()
+            } else {
+                center.requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                    if success {
+                        addRequest()
+                    } else {
+                        print("D'oh: \(error?.localizedDescription ?? "error")")
+                    }
+                }
+            }
         }
     }
 }
