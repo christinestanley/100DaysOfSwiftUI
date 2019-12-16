@@ -36,6 +36,7 @@ struct ContentView: View {
                     Stepper(value: $sleepAmount, in: 4...12, step: 0.25) {
                         Text("\(sleepAmount, specifier: "%g") hours")
                     }
+                    .accessibility(value: Text("\(sleepAmount, specifier: "%g") hours"))
                 }
                 
                 Section(header: Text("Daily coffee intake")) {
@@ -53,6 +54,8 @@ struct ContentView: View {
                             Text("\(coffeeAmount) cups")
                         }
                     }
+                    .accessibility(value: Text("\(coffeeAmount) \(coffeeAmount == 1 ? "cup" : "cups")"))
+                
                 }
             }
             

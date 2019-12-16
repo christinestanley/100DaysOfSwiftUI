@@ -28,6 +28,7 @@ struct MissionView: View {
                         .frame(maxWidth: geometry.size.width * 0.7)
                         .padding(.top)
                         .shadow(color: .primary, radius: 5, x: 5, y: 5)
+                        .accessibility(hidden: true)
                     
                     Text(self.mission.formattedLaunchDate)
                     

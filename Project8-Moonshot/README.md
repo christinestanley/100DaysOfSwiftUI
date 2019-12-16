@@ -23,3 +23,10 @@ Astronauts.json includes a short description that has been copied from Wikipedia
 2. Modify AstronautView to show all the missions this astronaut flew on.
 
 3. Make a bar button in ContentView that toggles between showing launch dates and showing crew names.
+
+## Day 76
+Do a full accessibility review of Moonshot – what changes do you need to make so that it’s fully accessible?
+
+1. Missions View update Voice Over to read crew names. Replace the ternary operator with an if / else block, as Voice Over then correctly gives the date or crew list.
+
+2. Prevent the Voice Over screen reading from describing the mission and pilot images.

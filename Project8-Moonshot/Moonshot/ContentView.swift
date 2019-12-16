@@ -28,7 +28,11 @@ struct ContentView: View {
                         Text(mission.displayName)
                             .font(.headline)
 
-                        Text(self.showCrew ? mission.crewRoster : mission.formattedLaunchDate)
+                        if self.showCrew {
+                            Text(mission.crewRoster)
+                        } else {
+                            Text(mission.formattedLaunchDate)
+                        }
                     }
                 }
             }
