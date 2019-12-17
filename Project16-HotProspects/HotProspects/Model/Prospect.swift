@@ -12,6 +12,7 @@ class Prospect: Identifiable, Codable {
     let id = UUID()
     var name = "Anonymous"
     var emailAddress = ""
+    var dateMet = Date()
     fileprivate(set) var isContacted = false
 }
 
@@ -21,14 +22,18 @@ class Prospects: ObservableObject {
     static let saveKey = "SavedData"
     
     init() {
-        if let data = UserDefaults.standard.data(forKey: Self.saveKey) {
-            if let decoded = try? JSONDecoder().decode([Prospect].self, from: data) {
-                self.people = decoded
-                return
-            }
-        }
         
-        self.people = []
+        // Day 85 challenge 2: Use JSON and the documents directory for saving and loading our user data. See Extension on FileManager
+        self.people = FileManager.default.readDocument(from: Self.saveKey) ?? []
+        
+        //        if let data = UserDefaults.standard.data(forKey: Self.saveKey) {
+        //            if let decoded = try? JSONDecoder().decode([Prospect].self, from: data) {
+        //                self.people = decoded
+        //                return
+        //            }
+        //        }
+        //
+        //        self.people = []
     }
     
     func add(_ prospect: Prospect) {
@@ -43,8 +48,14 @@ class Prospects: ObservableObject {
     }
     
     private func save() {
-        if let encoded = try? JSONEncoder().encode(people) {
-            UserDefaults.standard.set(encoded, forKey: Self.saveKey)
+        // Day 85 challenge 2: Use JSON and the documents directory for saving and loading our user data.
+        guard FileManager.default.writeDocument(people, to: Self.saveKey) else {
+            print("Unable to save data.")
+            return
         }
+        
+//        if let encoded = try? JSONEncoder().encode(people) {
+//            UserDefaults.standard.set(encoded, forKey: Self.saveKey)
+//        }
     }
 }

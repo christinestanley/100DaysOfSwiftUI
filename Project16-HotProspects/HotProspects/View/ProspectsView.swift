@@ -14,10 +14,17 @@ enum FilterType {
     case none, contacted, uncontacted
 }
 
+enum SortType {
+    case name, date
+}
+
 struct ProspectsView: View {
     @EnvironmentObject var prospects: Prospects
     
     @State private var isShowingScanner = false
+    @State private var isShowingSort = false
+    
+    @State private var sortBy: SortType = .name
     
     let filter: FilterType
     var title: String {
@@ -41,6 +48,15 @@ struct ProspectsView: View {
         }
     }
     
+    var sortedProspects: [Prospect] {
+        switch sortBy {
+        case .name:
+            return filteredProspects.sorted(by: { $0.name < $1.name } )
+        case .date:
+            return filteredProspects.sorted(by: { $0.dateMet > $1.dateMet } )
+        }
+    }
+    
     var body: some View {
         NavigationView {
             VStack {
@@ -49,13 +65,26 @@ struct ProspectsView: View {
                     .font(.headline)
                 }
                 List {
-                    ForEach(filteredProspects) { prospect in
+                    ForEach(sortedProspects) { prospect in
                         VStack(alignment: .leading) {
-                            Text(prospect.name)
-                                .font(.headline)
+                            HStack {
+                                if self.filter == .none {
+                                    if prospect.isContacted {
+                                        Image(systemName: "person.crop.circle.badge.checkmark" )
+                                            .foregroundColor(.green)
+                                        
+                                    } else {
+                                        Image(systemName: "person.crop.circle.badge.xmark" )
+                                            .foregroundColor(.red)
+                                    }
+                                }
+                                Text(prospect.name)
+                                    .font(.headline)
+                            }
                             Text(prospect.emailAddress)
                                 .foregroundColor(.secondary)
                         }
+                            
                         .contextMenu {
                             Button(prospect.isContacted ? "Mark Uncontacted" : "Mark Contacted") {
                                 self.prospects.toggle(prospect)
@@ -69,12 +98,24 @@ struct ProspectsView: View {
                     }
                 } }
                 .navigationBarTitle(title)
-                .navigationBarItems(trailing: Button(action: {
-                    self.isShowingScanner = true
-                }) {
-                    Image(systemName: "qrcode.viewfinder")
-                    Text("Scan")
+                .navigationBarItems(
+                    leading: Button(action: {
+                        self.isShowingSort = true
+                    }) {
+                        Image(systemName: "arrow.up.arrow.down.square")
+                    },
+                    trailing: Button(action: {
+                        self.isShowingScanner = true
+                    }) {
+                        Image(systemName: "qrcode.viewfinder")
+                        Text("Scan")
                 })
+                .actionSheet(isPresented: $isShowingSort) {
+                    ActionSheet(title: Text("Sort by"), buttons: [
+                        .default(Text("Name")) {self.sortBy = .name},
+                        .default(Text("Most Recent")) {self.sortBy = .date}
+                    ])
+                }
                 .sheet(isPresented: $isShowingScanner) {
                     CodeScannerView(codeTypes: [.qr], simulatedData: "Paul Hudson\npaul@hackingwithswift.com", completion: self.handleScan)
             }

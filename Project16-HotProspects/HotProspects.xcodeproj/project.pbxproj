@@ -17,6 +17,7 @@
 		83B804F623A661D70083DCAB /* MeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B804F523A661D70083DCAB /* MeView.swift */; };
 		83B804F823A683C30083DCAB /* Prospect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B804F723A683C30083DCAB /* Prospect.swift */; };
 		83B804FE23A6AE680083DCAB /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 83B804FD23A6AE680083DCAB /* CodeScanner */; };
+		83EC71C823A951BE00089C46 /* FileManager-Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83EC71C723A951BE00089C46 /* FileManager-Codable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		83B804F323A661B80083DCAB /* ProspectsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProspectsView.swift; sourceTree = "<group>"; };
 		83B804F523A661D70083DCAB /* MeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeView.swift; sourceTree = "<group>"; };
 		83B804F723A683C30083DCAB /* Prospect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prospect.swift; sourceTree = "<group>"; };
+		83EC71C723A951BE00089C46 /* FileManager-Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "FileManager-Codable.swift"; path = "HotProspects/Model/FileManager-Codable.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				83B804F723A683C30083DCAB /* Prospect.swift */,
+				83EC71C723A951BE00089C46 /* FileManager-Codable.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			files = (
 				83B804F423A661B80083DCAB /* ProspectsView.swift in Sources */,
 				83B804F823A683C30083DCAB /* Prospect.swift in Sources */,
+				83EC71C823A951BE00089C46 /* FileManager-Codable.swift in Sources */,
 				83AC5BA423A16F3A00CD7108 /* AppDelegate.swift in Sources */,
 				83AC5BA623A16F3A00CD7108 /* SceneDelegate.swift in Sources */,
 				83AC5BA823A16F3A00CD7108 /* ContentView.swift in Sources */,
