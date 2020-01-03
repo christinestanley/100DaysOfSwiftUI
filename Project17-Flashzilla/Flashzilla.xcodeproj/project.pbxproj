@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8358573923BBB821009ECD40 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8358573823BBB821009ECD40 /* Card.swift */; };
 		8358573B23BBB940009ECD40 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8358573A23BBB940009ECD40 /* CardView.swift */; };
+		8358573D23BFA845009ECD40 /* EditCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8358573C23BFA845009ECD40 /* EditCards.swift */; };
 		83881C3623AA941900E83EE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83881C3523AA941900E83EE4 /* AppDelegate.swift */; };
 		83881C3823AA941900E83EE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83881C3723AA941900E83EE4 /* SceneDelegate.swift */; };
 		83881C3A23AA941900E83EE4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83881C3923AA941900E83EE4 /* ContentView.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		8358573823BBB821009ECD40 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		8358573A23BBB940009ECD40 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		8358573C23BFA845009ECD40 /* EditCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCards.swift; sourceTree = "<group>"; };
 		83881C3223AA941900E83EE4 /* Flashzilla.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flashzilla.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		83881C3523AA941900E83EE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		83881C3723AA941900E83EE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 				83881C3923AA941900E83EE4 /* ContentView.swift */,
 				8358573A23BBB940009ECD40 /* CardView.swift */,
 				8358573823BBB821009ECD40 /* Card.swift */,
+				8358573C23BFA845009ECD40 /* EditCards.swift */,
 				83881C3B23AA941A00E83EE4 /* Assets.xcassets */,
 				83881C4023AA941A00E83EE4 /* LaunchScreen.storyboard */,
 				83881C4323AA941A00E83EE4 /* Info.plist */,
@@ -155,6 +158,7 @@
 				83881C3623AA941900E83EE4 /* AppDelegate.swift in Sources */,
 				83881C3823AA941900E83EE4 /* SceneDelegate.swift in Sources */,
 				83881C3A23AA941900E83EE4 /* ContentView.swift in Sources */,
+				8358573D23BFA845009ECD40 /* EditCards.swift in Sources */,
 				8358573923BBB821009ECD40 /* Card.swift in Sources */,
 				8358573B23BBB940009ECD40 /* CardView.swift in Sources */,
 			);
