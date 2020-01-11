@@ -75,27 +75,28 @@ struct ContentView: View {
             .tabItem {
                 Image(systemName: "3.circle")
             }
-            
-            HStack {
-                VStack {
-                    Text("@twostraws")
-                        .alignmentGuide(.midAccountAndName) { d in d[VerticalAlignment.center] }
-                    Image(systemName: "person.crop.circle")
-                        .resizable()
-                        .frame(width: 64, height: 64)
-                    Text("@twostraws")
-                }
-                
-                VStack {
-                    Text("Full name:")
-                    Text("PAUL HUDSON")
-                        .alignmentGuide(.midAccountAndName) { d in d[VerticalAlignment.center] }
-                        .font(.largeTitle)
-                }
-            }
-            .tabItem {
-                Image(systemName: "4.circle")
-            }
+
+// TODO: Useful example of .alignmentGuide but using it within the tabview crashes the app. It appears that this tab must also contain a GeometryReader.
+//            HStack {
+//                VStack {
+//                    Text("@twostraws")
+//                        .alignmentGuide(.midAccountAndName) { d in d[VerticalAlignment.center] }
+//                    Image(systemName: "person.crop.circle")
+//                        .resizable()
+//                        .frame(width: 64, height: 64)
+//                    Text("@twostraws")
+//                }
+//
+//                VStack {
+//                    Text("Full name:")
+//                    Text("PAUL HUDSON")
+//                        .alignmentGuide(.midAccountAndName) { d in d[VerticalAlignment.center] }
+//                        .font(.largeTitle)
+//                }
+//            }
+//            .tabItem {
+//                Image(systemName: "4.circle")
+//            }
         }
     }
 }
