@@ -22,13 +22,18 @@ struct MissionView: View {
         GeometryReader { geometry in
             ScrollView(.vertical) {
                 VStack {
-                    Image(self.mission.image)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(maxWidth: geometry.size.width * 0.7)
-                        .padding(.top)
-                        .shadow(color: .primary, radius: 5, x: 5, y: 5)
-                        .accessibility(hidden: true)
+                    GeometryReader { geo in
+                        Image(self.mission.image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(maxWidth: geometry.size.width * 0.7)
+                            .padding(.top, min(10 + geometry.frame(in: .global).minY - geo.frame(in: .global).minY, geo.size.height * 0.5))
+                            .padding(.bottom, 10)
+                            .padding([.leading, .trailing], (geometry.size.width * 0.3) / 2)
+                            .shadow(color: .primary, radius: 5, x: 5, y: 5)
+                            .accessibility(hidden: true)
+                    }
+                    .frame(maxHeight: geometry.size.width * 0.6)
                     
                     Text(self.mission.formattedLaunchDate)
                     
