@@ -13,6 +13,8 @@
 		831583D723CB402B00A1B7CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 831583D623CB402B00A1B7CF /* Assets.xcassets */; };
 		831583DA23CB402B00A1B7CF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 831583D923CB402B00A1B7CF /* Preview Assets.xcassets */; };
 		831583DD23CB402B00A1B7CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 831583DB23CB402B00A1B7CF /* LaunchScreen.storyboard */; };
+		831583E523CB481A00A1B7CF /* DieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831583E423CB481A00A1B7CF /* DieView.swift */; };
+		83833DF823CB8D2600146FA2 /* Die.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83833DF723CB8D2600146FA2 /* Die.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		831583D923CB402B00A1B7CF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		831583DC23CB402B00A1B7CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		831583DE23CB402B00A1B7CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		831583E423CB481A00A1B7CF /* DieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DieView.swift; sourceTree = "<group>"; };
+		83833DF723CB8D2600146FA2 /* Die.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Die.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				831583D023CB402800A1B7CF /* AppDelegate.swift */,
 				831583D223CB402800A1B7CF /* SceneDelegate.swift */,
 				831583D423CB402800A1B7CF /* ContentView.swift */,
+				83833DF723CB8D2600146FA2 /* Die.swift */,
+				831583E423CB481A00A1B7CF /* DieView.swift */,
 				831583D623CB402B00A1B7CF /* Assets.xcassets */,
 				831583DB23CB402B00A1B7CF /* LaunchScreen.storyboard */,
 				831583DE23CB402B00A1B7CF /* Info.plist */,
@@ -149,6 +155,8 @@
 				831583D123CB402800A1B7CF /* AppDelegate.swift in Sources */,
 				831583D323CB402800A1B7CF /* SceneDelegate.swift in Sources */,
 				831583D523CB402800A1B7CF /* ContentView.swift in Sources */,
+				83833DF823CB8D2600146FA2 /* Die.swift in Sources */,
+				831583E523CB481A00A1B7CF /* DieView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
