@@ -6,12 +6,9 @@
 //  Copyright © 2020 Earlswood Marketiing Ltd. All rights reserved.
 //
 
-import Combine
 import SwiftUI
 
 class Die: ObservableObject {
-    let objectWillChange = ObservableObjectPublisher()
-    
     var value: Int {
         willSet {
             objectWillChange.send()
